@@ -4,7 +4,7 @@ question = 0
 
 curr_user = input("What's your name?: ")
 print(f"Hello {curr_user}!")
-print("""\nWelcome to the Film Quotes Quiz 2024\n
+print("""Welcome to the Film Quotes Quiz 2024\n
 Please complete the film quote by adding the missing word- \n""")
 print("")
 
