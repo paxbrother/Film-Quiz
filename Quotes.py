@@ -2,6 +2,8 @@
 counter = 0
 question = 0
 
+curr_user = input("What's your name?: ")
+print(f"Hello {curr_user}!")
 print("""\nWelcome to the Film Quotes Quiz 2024\n
 Please complete the film quote by adding the missing word- \n""")
 print("")
@@ -125,7 +127,7 @@ else:
     print("Incorrect!")
     question += 1
 
-print(f"""Congratulations, you've reached the end of the Quote Quiz!
+print(f"""Congratulations {curr_user}, you've reached the end of the Quote Quiz!
       You answered {counter} questions correctly from a total of {question} questions""")
 
 
