@@ -1,136 +1,45 @@
+import random
 
-counter = 0
-question = 0
+class Questions:
+    def __init__(quiz, question, answer):
+        quiz.question = question
+        quiz.answer = answer
 
-curr_user = input("What's your name?: ")
+
+curr_user = input("Please enter your name: ")
 print(f"Hello {curr_user}!")
 print("""Welcome to the Film Quotes Quiz 2024\n
-Please complete the film quote by adding the missing word- \n""")
-print("")
+Please complete the film quote by adding the missing word - \n""")
 
-print("Quote ONE - \"Frankly my dear, I don't give a ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "damn":
-    counter += 1
-    question += 1
-    print("Correct!")
-else: 
-    print("Incorrect!")
-    question += 1
+corr_count = 0
 
-print("")
-print("Quote TWO - \"We're going to need a bigger ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "boat":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
+q1 = Questions("\"Frankly my dear, I don't give a ___ \"", "damn")
+q2 = Questions("\"We're going to need a bigger ___ \"", "boat")
+q3 = Questions("\"You had me at ___ \"", "hello")
+q4 = Questions("\"You can't handle the ___ \"","truth")
+q5 = Questions("\"I'm going to make him an offer he can't ___\"", "refuse")
+q6 = Questions("\"Hasta la vista, ___ \"", "baby")
+q7 = Questions("\"Toto, I've a feeling we're not in ___ anymore\"", "kansas")
+q8 = Questions("\"Here's looking at you, ___ \"", "kid")
+q9 = Questions("\"Get your stinking paws off me, you damn dirty ___\"", "ape")
+q10 = Questions("\"I see ___ people\"","dead")
 
-print("")
-print("Quote THREE - \"You had me at ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "hello":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
+full_quiz = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+
+random.shuffle(full_quiz)
+for q in full_quiz:
+    print(q.question)
+    answer = input("Finish the quote: ").lower()
+    if answer == q.answer:
+        print("Correct!\n") 
+        corr_count += 1
+        print("Next question:")
+        continue
+    else:
+        print("Incorrect!\n")
+        print("Next question: ")
+        continue
 
 print("")
-print("Quote FOUR - \"We're going to need a bigger ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "boat":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote FIVE - \"You can't handle the ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "truth":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote SIX - \"I'm going to make him an offer he can't ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "refuse":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote SEVEN - \"Get your stinking paws off me, you damn dirty ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "ape":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote EIGHT - \"Toto, I've a feeling we're not in ... anymore\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "kansas":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote NINE - \"Here's looking at you, ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "kid":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print("")
-print("Quote TEN - \"Hasta la vista, ...\"")
-answer = input("Complete the quote - ")
-print(f"You answered {answer}")
-if str(answer).lower() == "baby":
-    counter += 1
-    question += 1
-    print("Correct!")
-else:
-    print("Incorrect!")
-    question += 1
-
-print(f"""Congratulations {curr_user}, you've reached the end of the Quote Quiz!
-      You answered {counter} questions correctly from a total of {question} questions""")
-
-
-
-
-
+print(f"""Congratulations {curr_user}, you've reached the end of the Film Quote Quiz!
+      You answered {corr_count} questions correctly from a total of {len(full_quiz)} questions\n""")
